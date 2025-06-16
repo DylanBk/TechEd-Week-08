@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@layer base {
+  * {
+    &::-webkit-scrollbar {
+      width: 10px;
+      display: none;
+      background: var(--background);
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background: #111;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer components {
+  button.primary {
+    padding: 0.25rem 0.5rem;
+    border: solid 2px white;
+    border-radius: 0.5rem;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      @apply border-red-600;
+      @apply text-red-600;
+    }
+  }
+
+  svg.icon {
+    @apply stroke-white;
+    @apply fill-background;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      @apply stroke-red-600;
+      @apply fill-red-600;
+    }
+  }
+}
